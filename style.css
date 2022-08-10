@@ -1,0 +1,102 @@
+:root {
+    --green: #38ccae;
+    --dark: #1b1b1b;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to right top, var(--dark),var(--green) );
+    overflow: hidden;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    
+}
+.container {
+    width: 66%;
+    height: 66%;
+    background: rgba(0,0,0,0.75);
+    background: linear-gradient(to right top, rgba(0,0,0,0.75), rgba(0,0,0,0.25));
+    border-radius: 20px;
+    position: relative;
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    padding: 20px;
+    
+
+}
+
+h1{
+    padding-bottom: 12px;
+    font-size: 30px;
+}
+p{
+    font-size: 16px;
+}
+
+a {
+    color: var(--green);
+    text-decoration: none;
+    position: relative;
+
+}
+a::after{    /*  pseudoelement - dodaj zawsze content */
+    content: "";
+    width: 0;
+    height: 3px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--green);
+    background: linear-gradient(90deg, transparent, var(--green));
+transition: width 0.3s;
+}
+a:hover:after{
+    width: 100%;
+}
+.cube {
+    position: absolute;
+    width: 10%;
+    right: 60%;
+    top: 0%;
+    opacity: 0.5;
+    animation: slideDown 15s linear infinite;
+
+}
+
+@keyframes slideDown {
+    from {transform: translateY(-20vh);}
+    to {transform: translateY(100vh);}
+}
+
+.grid {
+    position: absolute;
+    width: 15%;
+    right: 10%;
+    top: 10%;
+    opacity: 0.5;
+    animation: rotate 15s linear infinite;
+   
+}
+
+@keyframes rotate {
+    from {transform: rotate(0deg)}
+    to {transform: rotate(360deg)}
+}
+
+.sh {
+    position: absolute;
+    width: 40%;
+    top: 50%;
+    transform: translate(-90%,-50%);
+    opacity: 0.35;
+}
